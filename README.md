@@ -23,7 +23,8 @@ Image reveal effect with JavaScript and CSS
 let reveal1 = createRevealer({
     el: "#reveal1", // Selector
     dotCount: 20, // Number of dots/boxes in each row and colum, using 20 will give 20 * 20 = 400 boxes(Optional, default: 10)
-    maxOffset: 10 // How far the dots should come from at max(Optional, default: 100)
+    maxOffset: 10, // How far the dots should come from at max(Optional, default: 100)
+    style: "diagonal" // Reveal direction. Can be horizontal, vertical or diagonal(Optional, default: diagonal)
 })
 
 //Now whenever we want the reveal to occure we just have to call the function with the path to image we want to reveal as an arguement
@@ -35,6 +36,7 @@ reveal1("img/1.jpg")
 ## Example: creating an image slider
 ```html
 <link rel="stylesheet" href="reveal.css">
+
 <div class="img-reveal" id="reveal1">
     <img src="img/1.jpg"><!-- Optional default image -->
 </div>

@@ -21,6 +21,18 @@ function getDiagonals(size){
     return res
 }
 
+function getStright(size, horizontal = true){
+    let res = []
+    for(let i = 0; i < size; i++){
+        let temp = []
+        for(let j = 0; j < size; j++){
+            temp.push(horizontal ? [j, i] : [i, j])
+        }
+        res.push(temp)
+    }
+    return res
+}
+
 function applyStyle(el, styles){
     Object.keys(styles).map(style => el.style[style] = styles[style])
 }
@@ -32,13 +44,21 @@ const delay = interval => new Promise(resolve => {
 function createRevealer(ops){
     ops = Object.assign({
         dotCount: 10,
-        maxOffset: 100
+        maxOffset: 100,
+        style: "diagonal"
     }, ops)
 
     let el = document.querySelector(ops.el)
     let elSize = 100
     let dotSize = elSize / ops.dotCount
-    let diagonalRows = getDiagonals(ops.dotCount)
+    let martixRows
+    if(ops.style === "horizontal"){
+        martixRows = getStright(ops.dotCount)
+    }else if(ops.style === "vertical"){
+        martixRows = getStright(ops.dotCount, false)
+    }else{
+        martixRows = getDiagonals(ops.dotCount)
+    }
 
     const createDot = (row, col, img, mid, idx) => {
         let dot = document.createElement("div")
@@ -70,8 +90,8 @@ function createRevealer(ops){
     }
 
     const reveal = async img => {
-        for(let i = 0; i < diagonalRows.length; i++){
-            let rows = diagonalRows[i]
+        for(let i = 0; i < martixRows.length; i++){
+            let rows = martixRows[i]
             await delay(150)
             rows.map((row, idx) => {
                 let dot = createDot(row[0], row[1], img, rows.length / 2, idx)
