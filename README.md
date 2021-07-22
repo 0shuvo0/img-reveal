@@ -1,6 +1,7 @@
 # Image Reveal
 Image reveal effect with JavaScript and CSS
 
+![Preview](preview.png)
 [View Demo](https://github.com/0shuvo0/img-reveal/blob/main/preview.mp4?raw=true)
 
 ## Usage
