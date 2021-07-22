@@ -31,14 +31,16 @@ reveal1()
 
 
 
-## Example creating an image slider
+## Example: creating an image slider
 ```html
+<link rel="stylesheet" href="reveal.css">
 <div class="img-reveal" id="reveal1">
-    <img src="img/1.jpg"><!-- Default image -->
+    <img src="img/1.jpg"><!-- Optional default image -->
 </div>
 <button id="prev">Previous</button>
 <button id="next">Next</button>
 
+<script src="reveal.js"></script>
 <script>
 const imgs = [
     "img/1.jpg",
