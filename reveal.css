@@ -1,14 +1,14 @@
-.dot-reveal{
+.img-reveal{
     height: 300px;
     width: 600px;
     position: relative;
 }
-.dot-reveal img{
+.img-reveal img{
     width: 100%;
     height: 100%;
     display: block;
 }
-.dot-reveal .dot{
+.img-reveal .dot{
     position: absolute;
 }
 @keyframes round{
