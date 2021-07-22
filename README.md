@@ -28,3 +28,42 @@ let reveal1 = createRevealer({
 //Now when ever we want the reveal to occure we just have to call the function
 reveal1()
 ```
+
+
+
+## Example creating an image slider
+```html
+<div class="img-reveal" id="reveal1">
+    <img src="img/1.jpg"><!-- Default image -->
+</div>
+<button id="prev">Previous</button>
+<button id="next">Next</button>
+
+<script>
+const imgs = [
+    "img/1.jpg",
+    "img/2.jpg",
+    "img/3.jpg",
+    "img/4.jpg",
+    "img/5.jpg"
+]
+let counter = 0
+let prev = document.getElementById("prev")
+let next = document.getElementById("next")
+let reveal1 = createRevealer({
+    el: "#reveal1"
+})
+
+prev.addEventListener("click" () => {
+    counter--
+    if(counter < 0) counter = imgs.length - 1
+    reveal1(imgs[counter])
+})
+
+next.addEventListener("click" () => {
+    counter++
+    if(counter > imgs.length - 1) counter = 0
+    reveal1(imgs[counter])
+})
+</script>
+```
