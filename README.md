@@ -21,8 +21,8 @@ Image reveal effect with JavaScript and CSS
 ```js
 //we use createRevealer function to create a revealer, it returns a function so we are capturing it in a variable.
 let reveal1 = createRevealer({
-    el: "#reveal1", //Selector
-    dotCount: 20, // NUmber of dots/boxes in each row and colum using 20 will give 20 * 20 = 400 boxes(Optional, default: 10)
+    el: "#reveal1", // Selector
+    dotCount: 20, // Number of dots/boxes in each row and colum, using 20 will give 20 * 20 = 400 boxes(Optional, default: 10)
     maxOffset: 10 // How far the dots should come from at max(Optional, default: 100)
 })
 
