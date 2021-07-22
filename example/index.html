@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../reveal.css">
+    <style>
+        p{
+            text-align: center;
+        }
+        #reveal1{
+            margin: 5em auto;
+            width: 600px;
+            height: 400px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <p>Click anywhere to reveal next image.</p>
+    <div class="dot-reveal" id="reveal1"></div>
+
+    <script src="../reveal.js"></script>
+    <script>
+        let reveal1 = createRevealer({
+            el: "#reveal1",
+            dotCount: 20,
+            maxOffset: 10
+        })
+        reveal1("https://picsum.photos/600/600")
+        addEventListener("click", () => reveal1(`https://picsum.photos/${ Math.floor(Math.random() * 1000) }/600`))
+    </script>
+</body>
+</html>
