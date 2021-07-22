@@ -19,15 +19,15 @@ Image reveal effect with JavaScript and CSS
 ```
 4. Use Javascript to create revealer
 ```js
-//we use createRevealer function to create a revealer, it returns a function so we are capturing it in a variable.
+// we use createRevealer function to create a revealer, it returns a function so we are capturing it in a variable.
 let reveal1 = createRevealer({
     el: "#reveal1", // Selector
     dotCount: 20, // Number of dots/boxes in each row and colum, using 20 will give 20 * 20 = 400 boxes(Optional, default: 10)
     maxOffset: 10 // How far the dots should come from at max(Optional, default: 100)
 })
 
-//Now when ever we want the reveal to occure we just have to call the function
-reveal1()
+//Now whenever we want the reveal to occure we just have to call the function with the path to image we want to reveal as an arguement
+reveal1("img/1.jpg")
 ```
 
 
