@@ -24,7 +24,8 @@ let reveal1 = createRevealer({
     el: "#reveal1", // Selector
     dotCount: 20, // Number of dots/boxes in each row and colum, using 20 will give 20 * 20 = 400 boxes(Optional, default: 10)
     maxOffset: 10, // How far the dots should come from at max(Optional, default: 100)
-    style: "diagonal" // Reveal direction. Can be horizontal, vertical or diagonal(Optional, default: diagonal)
+    style: "diagonal", // Reveal direction. Can be horizontal, vertical or diagonal(Optional, default: diagonal)
+    bidirectional: true // Should reveal occure from both side or not (Optional, default: false)
 })
 
 //Now whenever we want the reveal to occure we just have to call the function with the path to image we want to reveal as an arguement

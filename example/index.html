@@ -25,9 +25,10 @@
     <script>
         let reveal1 = createRevealer({
             el: "#reveal1",
-            dotCount: 20,
-            maxOffset: 10,
-            style: "vertical"
+            dotCount: 30,
+            maxOffset: 5,
+            style: "diagonal",
+            bidirectional: true,
         })
         reveal1("https://picsum.photos/600/600")
         addEventListener("click", () => reveal1(`https://picsum.photos/${ Math.floor(Math.random() * 1000) }/600`))

@@ -45,12 +45,14 @@ function createRevealer(ops){
     ops = Object.assign({
         dotCount: 10,
         maxOffset: 100,
-        style: "diagonal"
+        style: "diagonal",
+        bidirectional: false
     }, ops)
 
     let el = document.querySelector(ops.el)
     let elSize = 100
     let dotSize = elSize / ops.dotCount
+
     let martixRows
     if(ops.style === "horizontal"){
         martixRows = getStright(ops.dotCount)
@@ -58,6 +60,17 @@ function createRevealer(ops){
         martixRows = getStright(ops.dotCount, false)
     }else{
         martixRows = getDiagonals(ops.dotCount)
+    }
+
+    if(ops.bidirectional){
+        let mid = Math.ceil(martixRows.length / 2)
+        let left = martixRows.slice(0, mid)
+        let right = martixRows.slice(-mid).reverse()
+        let temp = []
+        for(let i = 0; i < mid; i++){
+            temp.push(left[i], right[i])
+        }
+        martixRows = temp
     }
 
     const createDot = (row, col, img, mid, idx) => {
@@ -90,9 +103,10 @@ function createRevealer(ops){
     }
 
     const reveal = async img => {
+        
         for(let i = 0; i < martixRows.length; i++){
             let rows = martixRows[i]
-            await delay(150)
+            if(!ops.bidirectional || i % 2 == 0) await delay(150)
             rows.map((row, idx) => {
                 let dot = createDot(row[0], row[1], img, rows.length / 2, idx)
                 el.appendChild(dot)
